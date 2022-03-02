@@ -16,10 +16,7 @@ const httpLink = createHttpLink({ uri: "http://localhost:4000" });
 
 const authLink = setContext((_, { headers }) => {
   //* get authentication token from LS if exists
-  // const token = JSON.parse(localStorage.getItem('token'));
-
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDJAZW1haWwuY29tIiwiaWQiOiI2MjFlMmE5NGI0NGUxMjVjMTNjNTZkZDYifSwiaWF0IjoxNjQ2MTQ0MTQ4LCJleHAiOjE2NDYxNTEzNDh9.7JWmwK_E9-AKear-FKoiU8t9LQ8ntH5qA7CrWG9cAuU";
+  const token = JSON.parse(localStorage.getItem("token"));
 
   // return the headers to the context so httpLink can read them
   return {
@@ -30,9 +27,9 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-// create new client instance connecting to GraphQL server
+// create new client instance connecting  React app to GraphQL server
 const client = new ApolloClient({
-  url: authLink.concat(httpLink),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
