@@ -16,7 +16,8 @@ const httpLink = createHttpLink({ uri: "http://localhost:4000" });
 
 const authLink = setContext((_, { headers }) => {
   //* get authentication token from LS if exists
-  const token = JSON.parse(localStorage.getItem("token"));
+
+  const token = localStorage.getItem("id_token");
 
   // return the headers to the context so httpLink can read them
   return {
