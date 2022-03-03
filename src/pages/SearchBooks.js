@@ -22,12 +22,12 @@ export const SearchBooks = () => {
   const [searchInput, setSearchInput] = useState("");
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // save `savedBookIds` list to localStorage on component unmount
   useEffect(() => {
     return () => saveBookIds(savedBookIds);
   });
 
-  // create method to search for books and set state on form submit
+  // search for books and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 

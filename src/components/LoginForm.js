@@ -31,7 +31,7 @@ const LoginForm = () => {
       const { data } = await executeLogin({
         variables: {
           user: {
-            email: userFormData.email,
+            email: userFormData.email.toLocaleLowerCase().trim(),
             password: userFormData.password,
           },
         },
