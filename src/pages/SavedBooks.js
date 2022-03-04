@@ -56,11 +56,6 @@ export const SavedBooks = () => {
 
   return (
     <>
-      {userData.savedBooks ? (
-        <h1>UserData!</h1>
-      ) : (
-        <h1>No UserData.savedBooks</h1>
-      )}
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
           <h1>Viewing saved books!</h1>
