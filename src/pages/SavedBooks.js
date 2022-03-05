@@ -84,8 +84,11 @@ export const SavedBooks = () => {
                   <Card.Title>{book.title}</Card.Title>
                   <p className="small">Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
+                  <Card.Link href={book.link} target="_blank">
+                    More Info
+                  </Card.Link>
                   <Button
-                    className="btn-block btn-danger"
+                    className="btn-block btn-danger mt-3"
                     onClick={() => handleDeleteBook(book.bookId)}
                   >
                     Delete this Book!

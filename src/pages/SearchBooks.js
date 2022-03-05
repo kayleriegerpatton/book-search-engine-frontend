@@ -43,6 +43,7 @@ export const SearchBooks = () => {
       }
 
       const { items } = await response.json();
+      console.log(items);
 
       const bookData = items.map((book) => ({
         bookId: book.id,
@@ -50,6 +51,7 @@ export const SearchBooks = () => {
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || "",
+        link: book.volumeInfo.infoLink,
       }));
 
       setSearchedBooks(bookData);
@@ -137,12 +139,15 @@ export const SearchBooks = () => {
                   <Card.Title>{book.title}</Card.Title>
                   <p className="small">Authors: {book.authors}</p>
                   <Card.Text>{book.description}</Card.Text>
+                  <Card.Link href={book.link} target="_blank">
+                    More Info
+                  </Card.Link>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedBookIds?.some(
                         (savedBookId) => savedBookId === book.bookId
                       )}
-                      className="btn-block btn-info"
+                      className="btn-block btn-info mt-3"
                       onClick={() => handleSaveBook(book.bookId)}
                     >
                       {savedBookIds?.some(
