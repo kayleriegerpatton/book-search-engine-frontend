@@ -12,10 +12,11 @@ import Navbar from "./components/Navbar";
 import { AppRoutes } from "./AppRoutes";
 
 // graphql port
-const httpLink = createHttpLink({ uri: "http://localhost:4000" });
+// const httpLink = createHttpLink({ uri: "http://localhost:4000" });
+const httpLink = createHttpLink({ uri: "/graphql" });
 
 const authLink = setContext((_, { headers }) => {
-  //* get authentication token from LS if exists
+  // get authentication token from LS if exists
 
   const token = localStorage.getItem("id_token");
 
