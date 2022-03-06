@@ -12,7 +12,9 @@ import Navbar from "./components/Navbar";
 import { AppRoutes } from "./AppRoutes";
 
 const httpLink = createHttpLink({
-  uri: process.env.GRAPHQL_URL || "http://localhost:4000",
+  uri:
+    process.env.GRAPHQL_URL ||
+    "https://thawing-cliffs-42043.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
