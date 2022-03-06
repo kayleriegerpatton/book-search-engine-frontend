@@ -11,9 +11,9 @@ import { setContext } from "@apollo/client/link/context";
 import Navbar from "./components/Navbar";
 import { AppRoutes } from "./AppRoutes";
 
-// graphql port
-// const httpLink = createHttpLink({ uri: "http://localhost:4000" });
-const httpLink = createHttpLink({ uri: "/graphql" });
+const httpLink = createHttpLink({
+  uri: process.GRAPHQL_URL || "http://localhost:4000",
+});
 
 const authLink = setContext((_, { headers }) => {
   // get authentication token from LS if exists
